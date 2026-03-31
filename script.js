@@ -1,28 +1,30 @@
-// Mobile Menu Toggle
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// ===== MOBILE NAVIGATION =====
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 });
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        document.body.style.overflow = '';
     });
 });
 
-// Navbar Scroll Effect
-const navbar = document.querySelector('.navbar');
+// ===== NAVBAR SCROLL EFFECT =====
+const navbar = document.getElementById('navbar');
 let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 50) {
+    if (currentScroll > 100) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
@@ -31,11 +33,11 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Active Navigation Link
+// ===== ACTIVE NAVIGATION LINK =====
 const sections = document.querySelectorAll('section');
 
 function setActiveLink() {
-    const scrollPosition = window.pageYOffset + 100;
+    const scrollPosition = window.pageYOffset + 150;
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -55,14 +57,14 @@ function setActiveLink() {
 
 window.addEventListener('scroll', setActiveLink);
 
-// Smooth Scroll
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         
         if (target) {
-            const offsetTop = target.offsetTop - 80;
+            const offsetTop = target.offsetTop - 100;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -71,10 +73,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for Animations
+// ===== INTERSECTION OBSERVER FOR ANIMATIONS =====
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -100px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -85,30 +87,17 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements
-const animateElements = document.querySelectorAll('.timeline-item, .skill-category, .education-card, .stat-item');
-animateElements.forEach(el => observer.observe(el));
+// Observe elements with delay for staggered animation
+const animateElements = document.querySelectorAll('.timeline-item, .skill-category, .education-card, .highlight-card');
+animateElements.forEach((el, index) => {
+    el.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(el);
+});
 
-// Add animation styles dynamically
-const style = document.createElement('style');
-style.textContent = `
-    .timeline-item,
-    .skill-category,
-    .education-card,
-    .stat-item {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-    }
-    
-    .animate-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
+// ===== IMAGE - Photo is set directly in HTML =====
+// No upload needed - profile photo is embedded in the page
 
-// Contact Form Handling
+// ===== CONTACT FORM HANDLING =====
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -126,147 +115,93 @@ if (contactForm) {
         // Open default email client
         window.location.href = mailtoLink;
         
-        // Show success message
-        alert('Thank you for your message! Your email client will open to send the message.');
+        // Show success notification
+        showNotification('Thank you! Your email client will open to send the message.', 'success');
         
         // Reset form
         contactForm.reset();
     });
 }
 
-// Typing Effect for Hero Title
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    const text = heroTitle.innerHTML;
-    heroTitle.innerHTML = '';
+// ===== NOTIFICATION SYSTEM =====
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-info-circle'}"></i>
+        <span>${message}</span>
+    `;
     
-    let i = 0;
-    function typeWriter() {
-        if (i < text.length) {
-            heroTitle.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
+    const style = document.createElement('style');
+    style.textContent = `
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(26, 35, 50, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 10000;
+            animation: slideInRight 0.4s ease, slideOutRight 0.4s ease 3s forwards;
+            max-width: 400px;
         }
-    }
-    
-    // Start typing effect after page load
-    window.addEventListener('load', () => {
-        setTimeout(typeWriter, 500);
-    });
-}
-
-// Parallax Effect for Hero Section
-const hero = document.querySelector('.hero');
-if (hero) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const parallaxSpeed = 0.5;
-        hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-    });
-}
-
-// Counter Animation for Stats
-const stats = document.querySelectorAll('.stat-item h3');
-
-function animateCounter(element) {
-    const text = element.textContent;
-    const hasNumber = /\d+/.test(text);
-    
-    if (hasNumber) {
-        const number = parseInt(text.match(/\d+/)[0]);
-        const suffix = text.replace(/\d+/, '');
-        let current = 0;
-        const increment = number / 50;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= number) {
-                element.textContent = number + suffix;
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(current) + suffix;
+        
+        .notification-success {
+            border-left: 4px solid #10b981;
+        }
+        
+        .notification-success i {
+            color: #10b981;
+            font-size: 24px;
+        }
+        
+        .notification span {
+            font-size: 15px;
+            color: #1a2332;
+            font-weight: 500;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
             }
-        }, 30);
-    }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+    `;
+    
+    document.head.appendChild(style);
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+        style.remove();
+    }, 3500);
 }
 
-// Observe stats for counter animation
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            animateCounter(entry.target);
-            entry.target.classList.add('counted');
-        }
-    });
-}, { threshold: 0.5 });
-
-stats.forEach(stat => statsObserver.observe(stat));
-
-// Skill Tag Click Effect
-const skillTags = document.querySelectorAll('.skill-tag');
-skillTags.forEach(tag => {
-    tag.addEventListener('click', () => {
-        tag.style.transform = 'scale(1.1)';
-        setTimeout(() => {
-            tag.style.transform = 'scale(1)';
-        }, 200);
-    });
-});
-
-// Timeline Item Hover Effect
-const timelineItems = document.querySelectorAll('.timeline-item');
-timelineItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        const dot = item.querySelector('.timeline-dot');
-        dot.style.transform = 'translateX(-50%) scale(1.5)';
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        const dot = item.querySelector('.timeline-dot');
-        dot.style.transform = 'translateX(-50%) scale(1)';
-    });
-});
-
-// Scroll to Top Button
-const scrollTopBtn = document.createElement('button');
-scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-scrollTopBtn.classList.add('scroll-top-btn');
-document.body.appendChild(scrollTopBtn);
-
-// Add styles for scroll to top button
-const scrollTopStyle = document.createElement('style');
-scrollTopStyle.textContent = `
-    .scroll-top-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--gradient-1);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        box-shadow: var(--shadow-lg);
-        z-index: 999;
-    }
-    
-    .scroll-top-btn.visible {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .scroll-top-btn:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-xl);
-    }
-`;
-document.head.appendChild(scrollTopStyle);
+// ===== SCROLL TO TOP BUTTON =====
+const scrollTopBtn = document.getElementById('scrollToTop');
 
 window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 500) {
         scrollTopBtn.classList.add('visible');
     } else {
         scrollTopBtn.classList.remove('visible');
@@ -280,67 +215,167 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-// Preloader
-window.addEventListener('load', () => {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }
+// ===== SKILL PROGRESS ANIMATION =====
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.skill-progress');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+            skillObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.skill-list').forEach(list => {
+    skillObserver.observe(list);
 });
 
-// Add cursor effect
-const cursor = document.createElement('div');
-cursor.classList.add('custom-cursor');
-document.body.appendChild(cursor);
-
-const cursorStyle = document.createElement('style');
-cursorStyle.textContent = `
-    .custom-cursor {
-        width: 20px;
-        height: 20px;
-        border: 2px solid var(--primary-color);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.1s ease;
-        opacity: 0;
-    }
+// ===== TYPING EFFECT (OPTIONAL) =====
+// Uncomment if you want a typing effect on the hero title
+/*
+const heroTitle = document.querySelector('.hero-title .title-line:last-child');
+if (heroTitle) {
+    const text = heroTitle.textContent;
+    heroTitle.textContent = '';
+    heroTitle.style.opacity = '1';
     
-    @media (min-width: 1024px) {
-        .custom-cursor {
-            opacity: 1;
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            heroTitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 100);
         }
     }
-`;
-document.head.appendChild(cursorStyle);
-
-document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-});
-
-// Enlarge cursor on hover
-const hoverElements = document.querySelectorAll('a, button, .skill-tag');
-hoverElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.style.width = '40px';
-        cursor.style.height = '40px';
-        cursor.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
-    });
     
-    el.addEventListener('mouseleave', () => {
-        cursor.style.width = '20px';
-        cursor.style.height = '20px';
-        cursor.style.backgroundColor = 'transparent';
+    setTimeout(typeWriter, 1000);
+}
+*/
+
+// ===== PARALLAX EFFECT ON SCROLL =====
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallaxElements = document.querySelectorAll('.hero-background');
+    
+    parallaxElements.forEach(el => {
+        const speed = 0.5;
+        el.style.transform = `translateY(${scrolled * speed}px)`;
     });
 });
 
-// Console Message
-console.log('%c👋 Hi there!', 'color: #2563eb; font-size: 20px; font-weight: bold;');
-console.log('%cWelcome to Dipanshu Rahangdale\'s Portfolio', 'color: #6b7280; font-size: 14px;');
-console.log('%cInterested in collaborating? Let\'s connect!', 'color: #6b7280; font-size: 14px;');
-console.log('%c📧 rahangdaledipanshu9@gmail.com', 'color: #2563eb; font-size: 14px;');
+// ===== PERFORMANCE OPTIMIZATION =====
+// Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debounce to scroll-heavy functions
+window.addEventListener('scroll', debounce(setActiveLink, 10));
+
+// ===== PAGE LOAD ANIMATION =====
+window.addEventListener('load', () => {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s ease';
+    
+    setTimeout(() => {
+        document.body.style.opacity = '1';
+    }, 100);
+});
+
+// ===== CONSOLE BRANDING =====
+console.log(
+    '%c👨‍🔬 Dipanshu Rahangdale',
+    'color: #d4af37; font-size: 24px; font-weight: bold; font-family: "Playfair Display", serif;'
+);
+console.log(
+    '%cChemical Engineer | Researcher | Innovator',
+    'color: #1a2332; font-size: 16px; font-weight: 600;'
+);
+console.log(
+    '%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    'color: #d4af37;'
+);
+console.log(
+    '%c📧 rahangdaledipanshu9@gmail.com\n📱 +91 9579185483\n🔗 linkedin.com/in/dipanshu-rahangdale-15a52b36a',
+    'color: #5a6c7d; font-size: 14px; line-height: 1.8;'
+);
+console.log(
+    '%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    'color: #d4af37;'
+);
+console.log(
+    '%cInterested in collaboration? Let\'s connect!',
+    'color: #2d3e50; font-size: 14px; font-style: italic;'
+);
+
+// ===== ACCESSIBILITY ENHANCEMENTS =====
+// Add keyboard navigation support
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+});
+
+// Focus management for mobile menu
+const focusableElements = navMenu.querySelectorAll('a, button');
+const firstFocusable = focusableElements[0];
+const lastFocusable = focusableElements[focusableElements.length - 1];
+
+navMenu.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusable) {
+                e.preventDefault();
+                lastFocusable.focus();
+            }
+        } else {
+            if (document.activeElement === lastFocusable) {
+                e.preventDefault();
+                firstFocusable.focus();
+            }
+        }
+    }
+});
+
+// ===== EASTER EGG: KONAMI CODE =====
+let konamiCode = [];
+const konamiPattern = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.key);
+    konamiCode = konamiCode.slice(-konamiPattern.length);
+    
+    if (konamiCode.join(',') === konamiPattern.join(',')) {
+        document.body.style.animation = 'rainbow 2s linear infinite';
+        showNotification('🎉 You found the secret! You\'re a true explorer!', 'success');
+        
+        const rainbowStyle = document.createElement('style');
+        rainbowStyle.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(rainbowStyle);
+        
+        setTimeout(() => {
+            document.body.style.animation = '';
+        }, 5000);
+    }
+});
