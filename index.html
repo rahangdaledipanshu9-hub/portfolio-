@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -27,39 +28,40 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="grid-overlay"></div>
+        <div class="hero-bg-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
         </div>
+        <div class="hero-grid-lines"></div>
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">
+                <div class="hero-badge fade-up delay-1">
                     <i class="fas fa-award"></i>
                     <span>SIH 2025 Winner</span>
                 </div>
-                <h1 class="hero-title">
+                <h1 class="hero-title fade-up delay-2">
                     <span class="title-line">Dipanshu</span>
                     <span class="title-line gradient-text">Rahangdale</span>
                 </h1>
-                <div class="hero-subtitle-wrapper">
+                <div class="hero-subtitle-wrapper fade-up delay-3">
                     <p class="hero-subtitle">Chemical Engineer</p>
                     <span class="divider">•</span>
                     <p class="hero-subtitle">Researcher</p>
                     <span class="divider">•</span>
                     <p class="hero-subtitle">Innovator</p>
                 </div>
-                <p class="hero-description">
+                <p class="hero-description fade-up delay-4">
                     A passionate researcher with expertise in reactor design, pyrolysis, and heterogeneous catalysis. Transforming complex chemical processes into innovative solutions through applied research and advanced materials science.
                 </p>
-                <div class="hero-buttons">
+                <div class="hero-buttons fade-up delay-5">
                     <a href="#contact" class="btn btn-primary">
                         <span>Let's Connect</span>
                         <i class="fas fa-arrow-right"></i>
@@ -68,11 +70,11 @@
                         <span>Explore My Work</span>
                     </a>
                 </div>
-                <div class="social-links">
+                <div class="social-links fade-up delay-6">
                     <a href="https://www.linkedin.com/in/dipanshu-rahangdale-15a52b36a" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="/cdn-cgi/l/email-protection#cdbfaca5aca3aaa9aca1a8a9a4bdaca3bea5b8f48daaa0aca4a1e3aea2a0" class="social-icon" title="Email">
+                    <a href="mailto:rahangdaledipanshu9@gmail.com" class="social-icon" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                     <a href="tel:+919579185483" class="social-icon" title="Phone">
@@ -83,13 +85,14 @@
                     </a>
                 </div>
             </div>
-            <div class="hero-image-wrapper">
+            <div class="hero-image-wrapper fade-up delay-3">
                 <div class="profile-ring-outer">
                     <div class="profile-ring-inner">
-                        <img 
-                            src="https://media.licdn.com/dms/image/v2/D5635AQGTsE5tc-yoWQ/profile-framedphoto-shrink_200_200/B56ZuxqYBRIQAY-/0/1768212234725?e=1776099600&v=beta&t=5uIhxFLcKB1Fl2n9NSap89Z5r9y0kt5ruvfY-n5xF9A" 
-                            alt="Dipanshu Rahangdale" 
+                        <img
+                            src="https://media.licdn.com/dms/image/v2/D5635AQGTsE5tc-yoWQ/profile-framedphoto-shrink_200_200/B56ZuxqYBRIQAY-/0/1768212234725?e=1776099600&v=beta&t=5uIhxFLcKB1Fl2n9NSap89Z5r9y0kt5ruvfY-n5xF9A"
+                            alt="Dipanshu Rahangdale"
                             class="profile-photo"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Dipanshu+Rahangdale&size=200&background=1a2332&color=d4af37&bold=true'"
                         >
                     </div>
                     <div class="ring-orbit">
@@ -115,14 +118,14 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about section-reveal">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">01</span>
                 <h2 class="section-title">About Me</h2>
             </div>
             <div class="about-grid">
-                <div class="about-text">
+                <div class="about-text reveal-item">
                     <div class="about-intro">
                         <h3>Passionate About Innovation & Research</h3>
                         <p class="lead-text">
@@ -130,43 +133,29 @@
                         </p>
                     </div>
                     <div class="about-details">
-                        <p>
-                            My research interests span across <strong>reactor design, pyrolysis processes, heterogeneous catalysis, and advanced materials development</strong>. I believe in the power of experimentation and continuous learning to drive meaningful technological advancements.
-                        </p>
-                        <p>
-                            What drives me is the opportunity to work on challenging projects that demand creativity, precision, and deep technical knowledge. Whether it's optimizing chemical processes, developing sustainable materials, or leading collaborative research initiatives, I'm committed to making a tangible impact.
-                        </p>
-                        <p>
-                            Beyond academics, I actively engage with professional communities including AIChE and IChemE, constantly expanding my expertise and staying at the forefront of industry developments.
-                        </p>
+                        <p>My research interests span across <strong>reactor design, pyrolysis processes, heterogeneous catalysis, and advanced materials development</strong>. I believe in the power of experimentation and continuous learning to drive meaningful technological advancements.</p>
+                        <p>What drives me is the opportunity to work on challenging projects that demand creativity, precision, and deep technical knowledge. Whether it's optimizing chemical processes, developing sustainable materials, or leading collaborative research initiatives, I'm committed to making a tangible impact.</p>
+                        <p>Beyond academics, I actively engage with professional communities including AIChE and IChemE, constantly expanding my expertise and staying at the forefront of industry developments.</p>
                     </div>
                 </div>
                 <div class="about-highlights">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
+                    <div class="highlight-card reveal-item">
+                        <div class="highlight-icon"><i class="fas fa-trophy"></i></div>
                         <h4>SIH 2025 Winner</h4>
                         <p>Led team to victory at Smart India Hackathon 2025</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
+                    <div class="highlight-card reveal-item">
+                        <div class="highlight-icon"><i class="fas fa-certificate"></i></div>
                         <h4>5+ Certifications</h4>
                         <p>Including MATLAB, Chemical Process Safety, and more</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
+                    <div class="highlight-card reveal-item">
+                        <div class="highlight-icon"><i class="fas fa-users"></i></div>
                         <h4>4+ Active Roles</h4>
                         <p>Leadership positions in professional organizations</p>
                     </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
+                    <div class="highlight-card reveal-item">
+                        <div class="highlight-icon"><i class="fas fa-project-diagram"></i></div>
                         <h4>Research Focus</h4>
                         <p>Reactor design, catalysis, and process optimization</p>
                     </div>
@@ -176,22 +165,21 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience section-reveal">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">02</span>
                 <h2 class="section-title">Professional Experience</h2>
             </div>
             <div class="timeline">
-                <div class="timeline-item" data-date="Dec 2025 - Present">
+                <div class="timeline-item reveal-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <span class="timeline-date">Dec 2025 – Present</span>
                         <span class="timeline-tag">Leadership</span>
                         <h3>Team Leader</h3>
                         <h4>Smart India Hackathon 2025</h4>
-                        <p class="timeline-description">
-                            Led a multidisciplinary team to secure victory at India's premier hackathon, managing complete project lifecycle from conceptualization to final demonstration.
-                        </p>
+                        <p class="timeline-description">Led a multidisciplinary team to secure victory at India's premier hackathon, managing complete project lifecycle from conceptualization to final demonstration.</p>
                         <ul class="timeline-achievements">
                             <li>Orchestrated technical planning and cross-functional team coordination</li>
                             <li>Delivered compelling jury presentations under strict deadlines</li>
@@ -200,16 +188,14 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="timeline-item" data-date="Jan 2026 - Present">
+                <div class="timeline-item reveal-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <span class="timeline-date">Jan 2026 – Present</span>
                         <span class="timeline-tag">Research</span>
                         <h3>Research Assistant</h3>
-                        <h4>AIChE - American Institute of Chemical Engineers</h4>
-                        <p class="timeline-description">
-                            Active member engaged in continuous professional development through technical training programs, workshops, and collaborative research initiatives.
-                        </p>
+                        <h4>AIChE – American Institute of Chemical Engineers</h4>
+                        <p class="timeline-description">Active member engaged in continuous professional development through technical training programs, workshops, and collaborative research initiatives.</p>
                         <ul class="timeline-achievements">
                             <li>Participating in advanced technical courses and certifications</li>
                             <li>Contributing to research discussions and knowledge sharing</li>
@@ -217,16 +203,14 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="timeline-item" data-date="Jan 2026 - Present">
+                <div class="timeline-item reveal-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <span class="timeline-date">Jan 2026 – Present</span>
                         <span class="timeline-tag">Management</span>
                         <h3>Management Executive</h3>
                         <h4>Institution of Chemical Engineers (IChemE)</h4>
-                        <p class="timeline-description">
-                            Contributing to organizational strategy and professional development initiatives within the global chemical engineering community.
-                        </p>
+                        <p class="timeline-description">Contributing to organizational strategy and professional development initiatives within the global chemical engineering community.</p>
                         <ul class="timeline-achievements">
                             <li>Coordinating events and professional development programs</li>
                             <li>Facilitating knowledge exchange between academia and industry</li>
@@ -234,16 +218,14 @@
                         </ul>
                     </div>
                 </div>
-
-                <div class="timeline-item" data-date="Jan 2026 - Present">
+                <div class="timeline-item reveal-item">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
-                        <span class="timeline-tag">Campus Ambassador</span>
+                        <span class="timeline-date">Jan 2026 – Present</span>
+                        <span class="timeline-tag">Ambassador</span>
                         <h3>Internshala Student Partner</h3>
                         <h4>Internshala</h4>
-                        <p class="timeline-description">
-                            Campus representative promoting internship opportunities and career development resources to empower fellow students.
-                        </p>
+                        <p class="timeline-description">Campus representative promoting internship opportunities and career development resources to empower fellow students.</p>
                         <ul class="timeline-achievements">
                             <li>Bridging gap between students and industry opportunities</li>
                             <li>Organizing career awareness sessions and workshops</li>
@@ -256,53 +238,53 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section id="skills" class="skills section-reveal">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">03</span>
                 <h2 class="section-title">Skills & Expertise</h2>
             </div>
             <div class="skills-grid">
-                <div class="skill-category">
+                <div class="skill-category reveal-item">
                     <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-flask"></i>
-                        </div>
+                        <div class="category-icon"><i class="fas fa-flask"></i></div>
                         <h3>Technical Expertise</h3>
                     </div>
                     <div class="skill-list">
                         <div class="skill-item">
-                            <span class="skill-name">Reactor Design & Optimization</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-label-row">
+                                <span class="skill-name">Reactor Design & Optimization</span>
+                                <span class="skill-pct">90%</span>
                             </div>
+                            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Pyrolysis Processes</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-label-row">
+                                <span class="skill-name">Pyrolysis Processes</span>
+                                <span class="skill-pct">85%</span>
                             </div>
+                            <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Heterogeneous Catalysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 88%"></div>
+                            <div class="skill-label-row">
+                                <span class="skill-name">Heterogeneous Catalysis</span>
+                                <span class="skill-pct">88%</span>
                             </div>
+                            <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Process Simulation</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 82%"></div>
+                            <div class="skill-label-row">
+                                <span class="skill-name">Process Simulation</span>
+                                <span class="skill-pct">82%</span>
                             </div>
+                            <div class="skill-bar"><div class="skill-progress" data-width="82"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal-item">
                     <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
+                        <div class="category-icon"><i class="fas fa-laptop-code"></i></div>
                         <h3>Software & Tools</h3>
                     </div>
                     <div class="skill-tags-modern">
@@ -317,46 +299,24 @@
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal-item">
                     <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
+                        <div class="category-icon"><i class="fas fa-brain"></i></div>
                         <h3>Core Competencies</h3>
                     </div>
                     <div class="competency-grid">
-                        <div class="competency-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Problem Solving</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-search"></i>
-                            <span>Research & Analysis</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-users-cog"></i>
-                            <span>Team Leadership</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Project Management</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-comments"></i>
-                            <span>Communication</span>
-                        </div>
-                        <div class="competency-item">
-                            <i class="fas fa-tasks"></i>
-                            <span>Critical Thinking</span>
-                        </div>
+                        <div class="competency-item"><i class="fas fa-lightbulb"></i><span>Problem Solving</span></div>
+                        <div class="competency-item"><i class="fas fa-search"></i><span>Research & Analysis</span></div>
+                        <div class="competency-item"><i class="fas fa-users-cog"></i><span>Team Leadership</span></div>
+                        <div class="competency-item"><i class="fas fa-chart-line"></i><span>Project Management</span></div>
+                        <div class="competency-item"><i class="fas fa-comments"></i><span>Communication</span></div>
+                        <div class="competency-item"><i class="fas fa-tasks"></i><span>Critical Thinking</span></div>
                     </div>
                 </div>
 
-                <div class="skill-category">
+                <div class="skill-category reveal-item">
                     <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
+                        <div class="category-icon"><i class="fas fa-language"></i></div>
                         <h3>Languages</h3>
                     </div>
                     <div class="language-list">
@@ -366,11 +326,7 @@
                                 <span class="language-level">Professional</span>
                             </div>
                             <div class="language-dots">
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
+                                <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
                             </div>
                         </div>
                         <div class="language-item">
@@ -379,11 +335,7 @@
                                 <span class="language-level">Professional</span>
                             </div>
                             <div class="language-dots">
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
+                                <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
                             </div>
                         </div>
                         <div class="language-item">
@@ -392,11 +344,7 @@
                                 <span class="language-level">Professional</span>
                             </div>
                             <div class="language-dots">
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
+                                <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
                             </div>
                         </div>
                         <div class="language-item">
@@ -405,21 +353,15 @@
                                 <span class="language-level">Elementary</span>
                             </div>
                             <div class="language-dots">
-                                <span class="dot active"></span>
-                                <span class="dot active"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
+                                <span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="skill-category full-width">
+                <div class="skill-category full-width reveal-item">
                     <div class="category-header">
-                        <div class="category-icon">
-                            <i class="fas fa-certificate"></i>
-                        </div>
+                        <div class="category-icon"><i class="fas fa-certificate"></i></div>
                         <h3>Certifications & Achievements</h3>
                     </div>
                     <div class="certifications-grid">
@@ -450,19 +392,17 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="education">
+    <section id="education" class="education section-reveal">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">04</span>
                 <h2 class="section-title">Education</h2>
             </div>
             <div class="education-timeline">
-                <div class="education-card">
-                    <div class="education-year">2023 - 2027</div>
+                <div class="education-card reveal-item">
+                    <div class="education-year">2023 – 2027</div>
                     <div class="education-content">
-                        <div class="education-icon-wrapper">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
+                        <div class="education-icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
                         <div class="education-details">
                             <h3>Bachelor of Engineering</h3>
                             <h4>Chemical Engineering</h4>
@@ -476,13 +416,10 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="education-card">
-                    <div class="education-year">2021 - 2023</div>
+                <div class="education-card reveal-item">
+                    <div class="education-year">2021 – 2023</div>
                     <div class="education-content">
-                        <div class="education-icon-wrapper">
-                            <i class="fas fa-school"></i>
-                        </div>
+                        <div class="education-icon-wrapper"><i class="fas fa-school"></i></div>
                         <div class="education-details">
                             <h3>Higher Secondary Certificate (HSC)</h3>
                             <h4>Electrical Maintenance</h4>
@@ -499,52 +436,40 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section-reveal">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">05</span>
                 <h2 class="section-title">Let's Connect</h2>
             </div>
             <div class="contact-wrapper">
-                <div class="contact-intro">
+                <div class="contact-intro reveal-item">
                     <h3>Ready to collaborate on innovative projects?</h3>
                     <p>I'm always excited to discuss research opportunities, innovative projects, or potential collaborations. Whether you're looking for a dedicated chemical engineer, a research partner, or simply want to exchange ideas, I'd love to hear from you.</p>
-                    
                     <div class="contact-methods">
-                        <a href="/cdn-cgi/l/email-protection#1d6f7c757c737a797c717879746d7c736e7568245d7a707c7471337e7270" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
+                        <a href="mailto:rahangdaledipanshu9@gmail.com" class="contact-method">
+                            <div class="method-icon"><i class="fas fa-envelope"></i></div>
                             <div class="method-details">
                                 <span class="method-label">Email</span>
-                                <span class="method-value"><span class="__cf_email__" data-cfemail="eb998a838a858c8f8a878e8f829b8a8598839ed2ab8c868a8287c5888486">[email&#160;protected]</span></span>
+                                <span class="method-value">rahangdaledipanshu9@gmail.com</span>
                             </div>
                         </a>
-                        
                         <a href="tel:+919579185483" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
+                            <div class="method-icon"><i class="fas fa-phone"></i></div>
                             <div class="method-details">
                                 <span class="method-label">Phone</span>
                                 <span class="method-value">+91 9579185483</span>
                             </div>
                         </a>
-                        
                         <div class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
+                            <div class="method-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="method-details">
                                 <span class="method-label">Location</span>
                                 <span class="method-value">Nagpur, Maharashtra, India</span>
                             </div>
                         </div>
-
                         <a href="https://www.linkedin.com/in/dipanshu-rahangdale-15a52b36a" target="_blank" rel="noopener noreferrer" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-linkedin"></i>
-                            </div>
+                            <div class="method-icon"><i class="fab fa-linkedin"></i></div>
                             <div class="method-details">
                                 <span class="method-label">LinkedIn</span>
                                 <span class="method-value">Connect with me</span>
@@ -552,9 +477,8 @@
                         </a>
                     </div>
                 </div>
-
-                <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
+                <div class="contact-form-wrapper reveal-item">
+                    <form id="contactForm" class="contact-form" novalidate>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Your Name</label>
@@ -607,18 +531,10 @@
                     <div class="footer-section">
                         <h4>Connect</h4>
                         <div class="footer-social">
-                            <a href="https://www.linkedin.com/in/dipanshu-rahangdale-15a52b36a" target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="/cdn-cgi/l/email-protection#5527343d343b3231343930313c25343b263d206c153238343c397b363a38" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="tel:+919579185483" title="Phone">
-                                <i class="fas fa-phone-alt"></i>
-                            </a>
-                            <a href="https://github.com/dipanshurahangdale" target="_blank" rel="noopener noreferrer" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <a href="https://www.linkedin.com/in/dipanshu-rahangdale-15a52b36a" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="mailto:rahangdaledipanshu9@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="tel:+919579185483" title="Phone"><i class="fas fa-phone-alt"></i></a>
+                            <a href="https://github.com/dipanshurahangdale" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -626,3 +542,15 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Dipanshu Rahangdale. All rights reserved.</p>
                 <p class="footer-made">Crafted with passion and precision</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
