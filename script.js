@@ -94,8 +94,8 @@ animateElements.forEach((el, index) => {
     observer.observe(el);
 });
 
-// ===== IMAGE - Photo is set directly in HTML =====
-// No upload needed - profile photo is embedded in the page
+// ===== PROFILE IMAGE (fixed - no upload needed) =====
+// Profile image is loaded directly from LinkedIn URL
 
 // ===== CONTACT FORM HANDLING =====
 const contactForm = document.getElementById('contactForm');
