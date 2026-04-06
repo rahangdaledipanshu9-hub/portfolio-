@@ -405,84 +405,131 @@ a {
 
 .hero-image-wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: fadeInRight 1s ease 0.5s backwards;
 }
 
-.image-container {
-    position: relative;
-    width: 260px;
-    height: 260px;
-    margin: 0 auto;
-    cursor: default;
+.hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.5), 0 0 0 10px rgba(212, 175, 55, 0.15), var(--shadow-xl);
-    transition: box-shadow var(--transition-medium);
+    background: radial-gradient(circle, rgba(212,175,55,0.25) 0%, transparent 70%);
+    pointer-events: none;
+    animation: glowPulse 4s ease-in-out infinite;
 }
 
-.image-container:hover {
-    box-shadow: 0 0 0 6px rgba(212, 175, 55, 0.7), 0 0 0 12px rgba(212, 175, 55, 0.2), var(--shadow-xl);
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
 }
 
-.image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border: 2px dashed rgba(255, 255, 255, 0.3);
+/* ===== CIRCULAR PROFILE PHOTO ===== */
+.profile-ring-outer {
+    position: relative;
+    width: 360px;
+    height: 360px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    color: rgba(255, 255, 255, 0.7);
-    transition: all var(--transition-medium);
+}
+
+.profile-ring-inner {
+    width: 280px;
+    height: 280px;
     border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 40%, rgba(212,175,55,0.3) 100%);
+    box-shadow: 0 0 0 12px rgba(212,175,55,0.1), 0 20px 60px rgba(0,0,0,0.4);
+    animation: pulseRing 3s ease-in-out infinite;
 }
 
-.image-placeholder:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--accent-color);
+@keyframes pulseRing {
+    0%, 100% { box-shadow: 0 0 0 12px rgba(212,175,55,0.1), 0 20px 60px rgba(0,0,0,0.4); }
+    50% { box-shadow: 0 0 0 20px rgba(212,175,55,0.18), 0 20px 60px rgba(0,0,0,0.4); }
 }
 
-.image-placeholder i {
-    font-size: 80px;
-}
-
-.image-placeholder p {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.profile-image {
+.profile-photo {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
     object-fit: cover;
     object-position: center top;
-    border-radius: 50%;
     display: block;
+    background: #1a2332;
 }
 
-.image-decoration {
+/* Orbiting ring */
+.ring-orbit {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    pointer-events: none;
+    border-radius: 50%;
+    border: 1px solid rgba(212,175,55,0.2);
+    animation: spin 12s linear infinite;
 }
 
-.decoration-circle {
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.orbit-dot {
     position: absolute;
-    top: 50%;
-    right: -30px;
-    width: 150px;
-    height: 150px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
     border-radius: 50%;
-    background: var(--gradient-accent);
-    opacity: 0.2;
-    filter: blur(40px);
+    box-shadow: 0 0 8px var(--accent-color);
+}
+
+.orbit-dot-1 { top: -5px; left: 50%; transform: translateX(-50%); }
+.orbit-dot-2 { bottom: 20px; right: -5px; }
+.orbit-dot-3 { bottom: 20px; left: -5px; }
+
+/* Floating stat badges */
+.profile-stat-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212,175,55,0.4);
+    border-radius: 40px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-light);
+    white-space: nowrap;
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+.profile-stat-badge i {
+    font-size: 14px;
+    color: var(--accent-color);
+}
+
+.badge-top-right {
+    top: 20px;
+    right: -30px;
+    animation-delay: 0s;
+}
+
+.badge-bottom-left {
+    bottom: 40px;
+    left: -40px;
+    animation-delay: 2s;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
 }
 
 .scroll-indicator {
@@ -1474,10 +1521,16 @@ section {
         justify-content: center;
     }
     
-    .image-container {
-        width: 200px;
-        height: 200px;
+    .profile-ring-outer {
+        width: 280px;
+        height: 280px;
     }
+    .profile-ring-inner {
+        width: 220px;
+        height: 220px;
+    }
+    .badge-top-right { right: -10px; }
+    .badge-bottom-left { left: -10px; }
     
     .timeline::before {
         left: 10px;
